@@ -2,7 +2,7 @@ name : Capture Issues
 on : issues
 jobs:
     on-issues:
-        runs-on : ubuntu- latest
+        runs-on : ubuntu-latest
         steps:
             - name : Issue context
               run : echo "${{ toJson(github.event)}}"
