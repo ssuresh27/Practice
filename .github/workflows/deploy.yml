@@ -18,6 +18,7 @@ jobs:
             - name : output
               run : echo "Lint ..."
     Test :
+        needs: Lint
         runs-on : ubuntu-latest
         steps:
             - name : Git-clone
@@ -33,6 +34,7 @@ jobs:
             - name : output
               run : echo "Testing ..."
     Build :
+        needs: [Lint, Test]
         runs-on : ubuntu-latest
         steps:
             - name : Git-clone
@@ -46,4 +48,4 @@ jobs:
             - name : Build
               run : npm run build
             - name : output
-              run : echo "Buld ..."
+              run : echo "Build ..."
