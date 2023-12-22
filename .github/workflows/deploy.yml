@@ -14,6 +14,6 @@ jobs:
             - name : Install-NPM
               run : npm ci
             - name : Lint
-              run : npm lint
+              run : npm run lint
             - name : output
               run : echo "Lint ..."
