@@ -17,3 +17,33 @@ jobs:
               run : npm run lint
             - name : output
               run : echo "Lint ..."
+    Test :
+        runs-on : ubuntu-latest
+        steps:
+            - name : Git-clone
+              uses : actions/checkout@v3
+            - name : NodeJS
+              uses : actions/setup-node@v3
+              with :
+                node-version : 18
+            - name : Install-NPM
+              run : npm ci
+            - name : Lint
+              run : npm run test
+            - name : output
+              run : echo "Testing ..."
+    Build :
+        runs-on : ubuntu-latest
+        steps:
+            - name : Git-clone
+              uses : actions/checkout@v3
+            - name : NodeJS
+              uses : actions/setup-node@v3
+              with :
+                node-version : 18
+            - name : Install-NPM
+              run : npm ci
+            - name : Build
+              run : npm run build
+            - name : output
+              run : echo "Buld ..."
